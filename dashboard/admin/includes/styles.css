@@ -1,0 +1,52 @@
+
+    /* Define color variables */
+    :root {
+      --color-blue: #007bff;
+      --color-green: #28a745;
+      --color-orange: linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);
+      --color-red: #dc3545;
+      --color-yellow: #ffc107;
+    }
+
+    /* Apply colors dynamically based on data-color attribute */
+    .font-icon-list[data-color="blue"] .font-icon-detail {
+      background-color: var(--color-blue);
+      color: white;
+    }
+
+    .font-icon-list[data-color="green"] .font-icon-detail {
+      background-color: var(--color-green);
+      color: white;
+    }
+
+    .font-icon-list[data-color="red"] .font-icon-detail {
+      background-color: var(--color-red);
+      color: white;
+    }
+
+    .font-icon-list[data-color="yellow"] .font-icon-detail {
+      background-color: var(--color-yellow);
+      color: black;
+    }
+
+    .font-icon-list[data-color="orange"] .font-icon-detail {
+      background: var(--color-orange);
+      color: white;
+    }
+
+    /* Additional styles for occupied and not-occupied rooms */
+    .font-icon-list[data-occupied="true"] .font-icon-detail {
+      background: var(--color-orange);
+      color: white;
+    }
+
+    .font-icon-list[data-occupied="false"] .font-icon-detail {
+      border-width: 2px;
+      border-color: #0c2646;
+      background-color: white;
+
+    }
+
+    .font-icon-detail {
+      font-size: 25px;
+    }
