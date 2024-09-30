@@ -1,8 +1,8 @@
 
 <footer class="footer">
         <div class=" container-fluid ">
-          <nav>
-            <ul>
+          <nav class="">
+            <ul class="">
               <li>
                 <a href="#">
                   Final-year| project

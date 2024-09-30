@@ -4,7 +4,7 @@ include("includes/header.php");
 
 $search = '';
 if (isset($_GET['search'])) {
-    $search = $_GET['search'];
+   $search = $_GET['search'];
 }
 
 ?>
@@ -12,11 +12,11 @@ if (isset($_GET['search'])) {
 
 <div class="wrapper ">
     <!-- common sidebar -->
-    <?php include("includes/sidebar.php") ?>
+   <?php include("includes/sidebar.php") ?>
 
     <div class="main-panel" id="main-panel">
         <!-- Navbar -->
-        <?php include("includes/navbar.php") ?>
+       <?php include("includes/navbar.php") ?>
 
         <!-- End Navbar -->
         <div class="panel-header panel-header-md">
@@ -44,15 +44,20 @@ if (isset($_GET['search'])) {
                             </div>
                         </div>
                         <div class="card-body">
-<!--                            successful & unsuccessful deletion -->
-
+                            <!--                            successful & unsuccessful deletion -->
+                           <?php
+                           loggedIn();
+                           ?>
+                           <?php
+                           alertMessage();
+                           ?>
                             <div class="table-responsive">
-                                <?php
-                                if (isset($_SESSION['message'])) {
-                                    echo "<div class='alert alert-success w-50 text-center ml-auto mr-auto'>{$_SESSION['message']}</div>";
-                                    unset($_SESSION['message']);
-                                }
-                                ?>
+                               <?php
+                               if (isset($_SESSION['message'])) {
+                                  echo "<div class='alert alert-success w-50 text-center ml-auto mr-auto'>{$_SESSION['message']}</div>";
+                                  unset($_SESSION['message']);
+                               }
+                               ?>
                                 <table class="table">
                                     <thead class="text-orange-500 font-bold opacity-6 rounded-md">
                                     <tr class="text-center  ">
@@ -69,11 +74,11 @@ if (isset($_GET['search'])) {
                                     <?php
                                     $sql = "SELECT * FROM students";
                                     if ($search != '') {
-                                        $sql .= " WHERE fname LIKE '%$search%' OR lname LIKE '%$search%' OR email LIKE '%$search%' OR reg_num LIKE '%$search%' OR hostel_num LIKE '%$search%' OR room_num LIKE '%$search%'";
+                                       $sql .= " WHERE fname LIKE '%$search%' OR lname LIKE '%$search%' OR email LIKE '%$search%' OR reg_num LIKE '%$search%' OR hostel_num LIKE '%$search%' OR room_num LIKE '%$search%'";
                                     }
                                     $result = mysqli_query($conn, $sql);
                                     while ($row = mysqli_fetch_assoc($result)) {
-                                        echo "<tr>
+                                       echo "<tr>
                                             <td>{$row['fname']}</td>
                                             <td>{$row['lname']}</td>
                                             <td>{$row['email']}</td>

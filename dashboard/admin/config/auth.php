@@ -139,3 +139,34 @@ if (isset($_POST['btn-delete'])) {
     exit();
 }
 
+//updating users
+if (isset($_POST['update-btn'])) {
+
+    $username = validate($_POST['username']);
+//    $phone = validate($_POST['phone']);
+    $email = validate($_POST['email']);
+    $password = validate($_POST['password']);
+
+
+//    $userid = validate($_POST['user_id']);
+
+
+
+    if (empty($username) || empty($email) || empty($password)) {
+        redirect('../profile.php', 'Please fill all the fields');
+    } else {
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $sql =  "UPDATE users SET 
+        username ='$username',
+        email ='$email',
+        password= '$hashed_password', 
+        WHERE id='$userid';
+        ";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+            redirect('../profile.php', 'User updated successfully');
+        } else {
+            redirect('../profile.php', 'Some went wrong');
+        }
+    }
+}

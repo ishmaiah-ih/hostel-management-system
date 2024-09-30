@@ -54,15 +54,32 @@ global $conn;
 
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "
-                  <div class='font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6' data-occupied='true'>
+                  <div class='font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6 ' data-occupied='true'>
+                    <a href='hostel_statistics.php?hostel_num={$row['hostel_num']}' >
                     <div class='font-icon-detail'>
                       <p>{$row['room_num']}</p> 
                       <p>{$row['hostel_num']}</p>
                     </div>
+                    </a>
                   </div>
+                  
                   ";
 }
                     ?>
+<!--                   --><?php
+//                   $sql = "SELECT DISTINCT hostel_num FROM students";
+//                   $result = mysqli_query($conn, $sql);
+//
+//                   while ($row = mysqli_fetch_assoc($result)) {
+//                      echo "
+//                        <div class='font-icon-list col-lg-2 col-md-3 col-sm-4 col-xs-6'>
+//                          <a href='hostel_statistics.php?hostel_num={$row['hostel_num']}' class='font-icon-detail'>
+//                            <p>Hostel {$row['hostel_num']}</p>
+//                          </a>
+//                        </div>
+//                        ";
+//                   }
+//                   ?>
 
 
 
